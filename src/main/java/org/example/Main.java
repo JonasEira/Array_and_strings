@@ -35,12 +35,20 @@ public class Main {
 
         // ------------ Updates
         // {"Firstname Lastname"}
+        System.out.println("------------ Updates");
         NameRepository.add("Börje Andersson");
         NameRepository.printAll();
         //          {"Firstname"}       {"Firstname lastname"}
         NameRepository.update("Börje", "Börje Svensson");
         NameRepository.printAll();
 
-        Name
+        // ------------ Remove
+        // {"Firstname Lastname"}
+        System.out.println("------------ Remove");
+        NameRepository.add("Börje Karlsson");
+        NameRepository.printAll();
+        //          {"Firstname"}       {"Firstname lastname"}
+        NameRepository.remove("Börje Karlsson");
+        NameRepository.printAll();
     }
 }
