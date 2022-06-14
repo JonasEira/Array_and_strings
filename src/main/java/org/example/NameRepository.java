@@ -101,11 +101,48 @@ public class NameRepository {
         return tmp;
     }
 
+    //This method finds the last name occurence
     public static String[] findByLastName(final String lastName) {
 
         int counter = 0;
-        for ()
+
+        for (String fullName : names) {
+            // "Firstname lastname"
+            // fullNames[0]   fullNames[1]
+            //{"Firstname", "lastname"}
+            String[] fullNames = fullName.split(" ");
+            if(fullNames[1].startsWith(lastName)){
+                counter++;
+            }
+        }
+        String[] tmp = new String[counter];
+        counter = 0;
+        for (String fullName : names) {
+            String[] fullNames = fullName.split(" ");
+            if(fullNames[1].startsWith(lastName)){
+                tmp[counter++] = fullName;
+            }
+        }
+        return tmp;
+    }
+
+    // Updates the name of the search criteria [firstname}           {firstname lastname}
+    public static boolean update(final String original, final String updatedName) {
+        for(int n = 0; n < names.length; n++){
+            //{"Firstname Lastname"}
+            //
+            if(names[n].startsWith(original)){
+                names[n] = updatedName;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public static void printAll(){
+        System.out.println("Names in the array:");
+        for(int n = 0; n < names.length; n++){
+            System.out.println("n=" + n + " name=\"" + names[n] + "\"");
+        }
     }
 }
-
-    "Zeq "| Startswith"Alidemaj"
